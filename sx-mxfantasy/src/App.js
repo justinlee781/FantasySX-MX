@@ -1,20 +1,15 @@
 import React from "react";
-import { Route, useLocation, BrowserRouter as Router } from "react-router-dom";
-import LandingPage from './LandingPage';
-import Picks from './Picks';
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./LandingPage";
 
-const App = () => {
-  const location = useLocation();
-
+function App() {
   return (
     <Router>
-      <div>
-          <Route exact path="/" component={LandingPage} />
-          <Route path="/Picks" component={Picks} />
-      </div>
+      <Routes>
+      <Route path="/" element={<LandingPage />}></Route>
+      </Routes>
     </Router>
   );
-};
+}
 
 export default App;
