@@ -23,7 +23,7 @@ Start picking your team and compete with your friends
 </Typography>
 <Button variant="contained" color="primary">
 <Link
-to="/register"
+to="/Picks"
 // style={{ textDecoration: 'none', color: '#fff' }}
 >
 Sign Up

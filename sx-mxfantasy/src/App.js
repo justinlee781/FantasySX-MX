@@ -5,11 +5,15 @@ import {
  Route,
 RouterProvider } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
+import Picks from "./pages/Picks";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<LandingPage />}/>
-    
+    <React.Fragment>
+    <Route path="/" element={<LandingPage />} />
+    <Route path="/Picks" element={<Picks />} />
+  </React.Fragment>
+  
 )
 )
 function App() {
