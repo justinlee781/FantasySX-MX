@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Box, Card, Button } from '@material-ui/core';
-import videoSrc from './assets/mx.mp4';
+import backgroundImage from './assets/sx2.png';
 import logo from './assets/logo.png';
 import { Link } from 'react-router-dom';
 
@@ -25,17 +25,10 @@ display: 'flex',
 justifyContent: 'center',
 alignItems: 'center',
 height: '70vh',
+backgroundImage: `url(${backgroundImage})`,
 backgroundSize: 'cover',
 backgroundPosition: 'center center',
 position: 'relative',
-},
-video: {
-position: 'absolute',
-top: 0,
-left: 0,
-width: '100%',
-height: '100%',
-objectFit: 'cover',
 },
 footer: {
 backgroundColor: '#00FF00',
@@ -69,37 +62,32 @@ color: '#fff',
 const LandingPage = () => {
 const classes = useStyles();
 
-
 return (
-  <Box component="section">
-    <header className={classes.header}>
-      <img src={logo} alt="Logo" />
-    </header>
-    <main className={classes.centerCardContainer}>
-      <video
-        className={classes.video}
-        src={videoSrc}
-        autoPlay
-        loop
-        muted
-      />
-      <Card className={classes.centerCard}>
-        <Typography variant="h6">Welcome to Fantasy SX</Typography>
-        <Typography variant="body1">
-          Start picking your team and compete with your friends
-        </Typography>
-       
-<Button component={Link} to="/register" variant="contained" color="primary">
-          Register
-        </Button>
-      </Card>
-    </main>
-    <footer className={classes.footer}>
-      <Typography variant="body2">
-        Fantasy SX 2023 &copy; All rights reserved
-      </Typography>
-    </footer>
-  </Box>
+<Box component="section">
+<header className={classes.header}>
+<img src={logo} alt="Logo" />
+</header>
+<main className={classes.centerCardContainer}>
+<Card className={classes.centerCard}>
+<Typography variant="h6">Welcome to Fantasy SX</Typography>
+<Typography variant="body1">
+Start picking your team and compete with your friends
+</Typography>
+<Button variant="contained" color="primary">
+<Link
+to="/register"
+style={{ textDecoration: 'none', color: '#fff' }}
+>
+Sign Up
+</Link>
+</Button>
+</Card>
+</main>
+<footer className={classes.footer}>
+<Typography variant="body1">Copyright © Fantasy SX 2023</Typography>
+
+</footer>
+</Box>
 );
 };
 export default LandingPage;
