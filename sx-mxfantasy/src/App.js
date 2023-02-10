@@ -1,14 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LandingPage from "./LandingPage";
+import { 
+  createBrowserRouter,
+  createRoutesFromElements,
+ Route,
+RouterProvider } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<LandingPage />}/>
+    
+)
+)
 function App() {
   return (
-    <Router>
-      <Routes>
-      <Route path="/" element={<LandingPage />}></Route>
-      </Routes>
-    </Router>
+    <RouterProvider router={router} />
+      
   );
 }
 
