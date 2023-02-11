@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -10,27 +11,30 @@ const names = ['Devyn', 'Brian', 'Brando', 'Christina', 'Jaimie', 'Justin', 'Bet
 const numbers = [601, 601, 594, 594, 592, 586, 586, 584, 582, 581, 577, 551];
 
 export default function AccessibleTable() {
-  const [expanded, setExpanded] = React.useState(false);
+const [expanded, setExpanded] = React.useState(false);
 
-  const handleChange = () => {
-    setExpanded(!expanded);
-  };
+const handleChange = () => {
+setExpanded(!expanded);
+};
 
-  return (
-    <Accordion expanded={expanded} onChange={handleChange}>
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-      >
-        Show Names
-      </AccordionSummary>
-      <AccordionDetails>
-        {names.map((name, index) => (
-          <React.Fragment key={name}>
-            <Button>{name}</Button>
-            {numbers[index]}
-          </React.Fragment>
-        ))}
-      </AccordionDetails>
-    </Accordion>
-  );
+return (
+<Accordion expanded={expanded} onChange={handleChange}>
+<AccordionSummary
+expandIcon={<ExpandMoreIcon />}
+>
+Show Names
+</AccordionSummary>
+<AccordionDetails>
+{names.map((name, index) => (
+<React.Fragment key={name}>
+<Link to={`/${name.toLowerCase()}.js`}>
+  <Button>{name}</Button>
+</Link>
+
+{numbers[index]}
+</React.Fragment>
+))}
+</AccordionDetails>
+</Accordion>
+);
 }
