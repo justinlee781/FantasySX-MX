@@ -22,14 +22,15 @@ return (
 <AccordionSummary
 expandIcon={<ExpandMoreIcon />}
 >
-Show Names
+ Show Names
 </AccordionSummary>
 <AccordionDetails>
 {names.map((name, index) => (
 <React.Fragment key={name}>
-<Link to={`/${name.toLowerCase()}.js`}>
+<Link to={`../pages/ProPicks/${name.toLowerCase()}.js`}>
   <Button>{name}</Button>
 </Link>
+
 
 {numbers[index]}
 </React.Fragment>
