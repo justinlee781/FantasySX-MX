@@ -1,0 +1,24 @@
+.table-container {
+    width: 70%;
+    margin: 50px auto;
+    }
+    
+    table {
+    width: 100%;
+    }
+    
+    th {
+    background-color: #9e1010;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    }
+    
+    td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    }
+    
+    tr:nth-child(even) {
+    background-color: #f2f2f2;
+    }

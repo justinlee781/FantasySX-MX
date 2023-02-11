@@ -1,0 +1,33 @@
+.metallic-card {
+    background-color: #a31515;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #810909;
+  }
+  
+  .pulsing-button {
+    animation: pulse 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .red-text {
+    color: #ff0000;
+  }
+  
+  .footer {
+    color: #9e1010;
+    padding: 20px;
+    text-align: center;
+  }
+  

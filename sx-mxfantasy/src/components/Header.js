@@ -1,16 +1,13 @@
-import React from 'react'
-import { Paper, Container, } from "@mui/material"
-import logo from '../assets/logo.png';
+import React from 'react';
+import { Container, Paper } from '@mui/material';
 
 const Header = () => {
   return (
-    <Container style={{ width: '100%' }}>
-      <Paper elevation={3}>
-        <img src={logo} alt="Logo" style={{ width: '100%', height: '100px' }} />
-      </Paper> 
+    <Container style={{ width: '100%', position: 'fixed', top: '0', zIndex: '1' }}>
+      <Paper elevation={3} style={{ backgroundColor: "transparent" }}>
+      </Paper>
     </Container>
-  )
-}
+  );
+};
 
-export default Header
-
+export default Header;
