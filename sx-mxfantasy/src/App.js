@@ -16,9 +16,9 @@ const router = createBrowserRouter(
     <React.Fragment>
       <Route path="/" element={<LandingPage />} />
       <Route path="/Picks" element={<Picks />} />
-      <Route path="/ProPicks/Devyn" element={<Devyn />} />
-      <Route path="/ProPicks/Brian" element={<Brian />} />
-      <Route path="/ProPicks/Brando" element={<Brando />} />
+      <Route path="/ProPicks/devyn" element={<Devyn />} />
+      <Route path="/ProPicks/brian" element={<Brian />} />
+      <Route path="/ProPicks/brando" element={<Brando />} />
     </React.Fragment>
   )
 );

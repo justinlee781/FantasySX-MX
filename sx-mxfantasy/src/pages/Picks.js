@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import '../pages/Picks.css';
 
+
 const names = ['Devyn', 'Brian', 'Brando', 'Christina', 'Jaimie', 'Justin', 'Bethann', 'Bob', 'Pasky', 'Rob', 'Pete', 'Russ'];
 const numbers = [601, 601, 594, 594, 592, 586, 586, 584, 582, 581, 577, 551];
 
@@ -27,7 +28,7 @@ expandIcon={<ExpandMoreIcon />}
 <AccordionDetails>
 {names.map((name, index) => (
 <React.Fragment key={name}>
-<Link to={`../pages/ProPicks/${name.toLowerCase()}.js`}>
+<Link to={`./ProPicks/${name.toLowerCase()}.js`}>
   <Button>{name}</Button>
 </Link>
 
@@ -39,3 +40,4 @@ expandIcon={<ExpandMoreIcon />}
 </Accordion>
 );
 }
+
