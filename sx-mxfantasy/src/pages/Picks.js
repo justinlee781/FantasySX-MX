@@ -28,8 +28,8 @@ expandIcon={<ExpandMoreIcon />}
 <AccordionDetails>
 {names.map((name, index) => (
 <React.Fragment key={name}>
-<Link to={`./ProPicks/${name.toLowerCase()}.js`}>
-  <Button>{name}</Button>
+<Link to={`/ProPicks/${name.toLowerCase()}`}>
+ <Button>{name}</Button>
 </Link>
 
 

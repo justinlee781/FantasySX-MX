@@ -1,12 +1,16 @@
-import * as React from 'react';
+import React from "react";
 
-const Devyn = () => {
-return (
-<div>
-<h1>This is Devyn's Page</h1>
-<p>Welcome to Devyn's page!</p>
-</div>
-);
-};
+function Devyn() {
+  return (
+    <div>
+      <h1>Devyn's Picks</h1>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+  );
+}
 
 export default Devyn;
