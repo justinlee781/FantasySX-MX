@@ -122,6 +122,3 @@ function Devyn(props) {
 }
 
 export default Devyn;
-     
-
-         
