@@ -1,116 +1,127 @@
 import React, { useState } from "react";
 import "./DevynPage.css";
 
-function DevynPage() {
+function Devyn(props) {
   const [selectedNames, setSelectedNames] = useState([]);
 
   function handleNameClick(name) {
-    if (selectedNames.includes(name)) {
-      setSelectedNames(selectedNames.filter(selectedName => selectedName !== name));
-    } else {
-      setSelectedNames([...selectedNames, name]);
-    }
+    setSelectedNames((selectedNames) => {
+      const isSelected = selectedNames.includes(name);
+      return isSelected
+        ? selectedNames.filter((selectedName) => selectedName !== name)
+        : selectedNames.length < 12
+        ? [...selectedNames, name]
+        : selectedNames;
+    });
   }
 
   function handleConfirmClick() {
-    // Do something with the selected names, e.g. navigate to the final page
-    console.log(selectedNames);
+    if (selectedNames.length === 12) {
+      const confirmedNames = [selectedNames.slice(0, 6), selectedNames.slice(6)];
+      props.onConfirm(confirmedNames);
+      setSelectedNames([]);
+    }
   }
 
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>450</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td onClick={() => handleNameClick("Name 1")} style={{ cursor: "pointer" }}>
-              Tomac
-            </td>
-            <td onClick={() => handleNameClick("Name 2")} style={{ cursor: "pointer" }}>
-              Sexton
-            </td>
-            <td onClick={() => handleNameClick("Name 3")} style={{ cursor: "pointer" }}>
-              Name 3
-            </td>
-            <td onClick={() => handleNameClick("Name 3")} style={{ cursor: "pointer" }}>
-              Name 3
-            </td>
-            <td onClick={() => handleNameClick("Name 3")} style={{ cursor: "pointer" }}>
-              Name 3
-            </td>
-            <td onClick={() => handleNameClick("Name 3")} style={{ cursor: "pointer" }}>
-              Name 3
-            </td>
-            <td onClick={() => handleNameClick("Name 3")} style={{ cursor: "pointer" }}>
-              Name 3
-            </td>
-            {/* Add more names here */}
-          </tr>
-          {/* Add more rows here */}
-        </tbody>
-      </table>
-
-      <table>
-        <thead>
-          <tr>
-            <th>250E</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td onClick={() => handleNameClick("Name 4")} style={{ cursor: "pointer" }}>
-              Name 4
-            </td>
-            <td onClick={() => handleNameClick("Name 5")} style={{ cursor: "pointer" }}>
-              Name 5
-            </td>
-            <td onClick={() => handleNameClick("Name 6")} style={{ cursor: "pointer" }}>
-              Name 6
-            </td>
-            <td onClick={() => handleNameClick("Name 10")} style={{ cursor: "pointer" }}>
-              Name 10
-            </td>
-            <td onClick={() => handleNameClick("Name 3")} style={{ cursor: "pointer" }}>
-              Name 3
-            </td>
-            {/* Add more names here */}
-          </tr>
-          {/* Add more rows here */}
-        </tbody>
-      </table>
-
-      <table>
-        <thead>
-          <tr>
-            <th>250W</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td onClick={() => handleNameClick("Name 7")} style={{ cursor: "pointer" }}>
-              Name 7
-            </td>
-            <td onClick={() => handleNameClick("Name 8")} style={{ cursor: "pointer" }}>
-              Name 8
-            </td>
-            <td onClick={() => handleNameClick("Name 9")} style={{ cursor: "pointer" }}>
-              Name 9
-            </td>
-            {/* Add more names here */}
-          </tr>
-          {/* Add more rows here */}
-        </tbody>
-      </table>
-
-      <button onClick={handleConfirmClick} disabled={selectedNames.length !== 12}>
-        Confirm ({selectedNames.length}/12)
+    <div className="container">
+      <div className="tables">
+        <table>
+          <thead>
+            <tr>
+              <th>450</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[...Array(Math.ceil(12 / 6))].map((_, rowIndex) => (
+              <tr key={rowIndex}>
+                {Array.from({ length: 6 }).map((_, colIndex) => {
+                  const index = rowIndex * 6 + colIndex;
+                  const name = "Name " + (index + 1);
+                  return (
+                    <td
+                      key={name}
+                      onClick={() => handleNameClick(name)}
+                      style={{ cursor: "pointer" }}
+                      className={selectedNames.includes(name) ? "selected" : ""}
+                    >
+                      {name}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="tables">
+        <table>
+          <thead>
+            <tr>
+              <th>250E</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[...Array(Math.ceil(12 / 6))].map((_, rowIndex) => (
+              <tr key={rowIndex}>
+                {Array.from({ length: 6 }).map((_, colIndex) => {
+                  const index = 12 + rowIndex * 6 + colIndex;
+                  const name = "Name " + (index + 1);
+                  return (
+                    <td
+                      key={name}
+                      onClick={() => handleNameClick(name)}
+                      style={{ cursor: "pointer" }}
+                      className={selectedNames.includes(name) ? "selected" : ""}
+                    >
+                      {name}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="tables">
+        <table>
+          <thead>
+            <tr>
+              <th>250W</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[...Array(Math.ceil(12 / 6))].map((_, rowIndex) => (
+              <tr key={rowIndex}>
+                {Array.from({ length: 6 }).map((_, colIndex) => {
+                  const index = 24 + rowIndex * 6 + colIndex;
+                  const name = "Name " + (index + 1);
+                  return (
+                    <td
+                      key={name}
+                      onClick={() => handleNameClick(name)}
+                      style={{ cursor: "pointer" }}
+                      className={selectedNames.includes(name) ? "selected" : ""}
+                    >
+                      {name}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="button-container">
+      <button className="confirm-button" onClick={handleConfirmClick}>
+        Confirm
       </button>
     </div>
-  );
+  </div>
+</div>
+);
 }
 
-export default DevynPage;
+export default Devyn;
+     
+
+         
