@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./DevynPage.css";
 
 function Devyn(props) {
@@ -16,11 +17,20 @@ function Devyn(props) {
   }
 
   function handleConfirmClick() {
-    if (selectedNames.length === 12) {
-      const confirmedNames = [selectedNames.slice(0, 6), selectedNames.slice(6)];
-      props.onConfirm(confirmedNames);
-      setSelectedNames([]);
+    if (typeof props.onConfirm === 'function') {
+      if (selectedNames.length === 12) {
+        const confirmedNames = [selectedNames.slice(0, 6), selectedNames.slice(6)];
+        props.onConfirm(confirmedNames);
+        setSelectedNames([]);
+      }
+    } else {
+      console.error('props.onConfirm is not a function');
     }
+  }
+
+  // Call onSendConfirmedNames only if it is a function
+  if (typeof props.onSendConfirmedNames === 'function') {
+    props.onSendConfirmedNames(selectedNames);
   }
 
   return (
@@ -66,7 +76,7 @@ function Devyn(props) {
               <tr key={rowIndex}>
                 {Array.from({ length: 6 }).map((_, colIndex) => {
                   const index = 12 + rowIndex * 6 + colIndex;
-                  const name = "Name " + (index + 1);
+                  const name = "Name" + (index + 1);
                   return (
                     <td
                       key={name}
@@ -94,29 +104,32 @@ function Devyn(props) {
             {[...Array(Math.ceil(12 / 6))].map((_, rowIndex) => (
               <tr key={rowIndex}>
                 {Array.from({ length: 6 }).map((_, colIndex) => {
-                  const index = 24 + rowIndex * 6 + colIndex;
-                  const name = "Name " + (index + 1);
-                  return (
-                    <td
-                      key={name}
-                      onClick={() => handleNameClick(name)}
-                      style={{ cursor: "pointer" }}
-                      className={selectedNames.includes(name) ? "selected" : ""}
-                    >
-                      {name}
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="button-container">
-      <button className="confirm-button" onClick={handleConfirmClick}>
-        Confirm
-      </button>
-    </div>
-  </div>
+const index = 24 + rowIndex * 6 + colIndex;
+const name = "Name" + (index + 1);
+return (
+<td
+key={name}
+onClick={() => handleNameClick(name)}
+style={{ cursor: "pointer" }}
+className={selectedNames.includes(name) ? "selected" : ""}
+>
+{name}
+</td>
+);
+})}
+</tr>
+))}
+</tbody>
+</table>
+</div>
+<div className="button-container">
+<button className="confirm-button" onClick={handleConfirmClick}>
+Confirm
+</button>
+<Link to="/" className="cancel-button">
+Cancel
+</Link>
+</div>
 </div>
 );
 }
