@@ -8,8 +8,8 @@ import Button from '@mui/material/Button';
 import '../pages/Picks.css';
 
 
-const names = ['Devyn', 'Brian', 'Brando', 'Christina', 'Jaimie', 'Justin', 'Bethann', 'Bob', 'Pasky', 'Rob', 'Pete', 'Russ'];
-const numbers = [601, 601, 594, 594, 592, 586, 586, 584, 582, 581, 577, 551];
+const names = ['Devyn', 'Brando', 'Brian', 'Jaimie', 'Pasky', 'Rob', 'Bob', 'Pedroski', 'Bethann', 'Justin', 'Christina', 'Russ'];
+const numbers = [1055, 1034, 1030, 1023, 1022, 1019, 1016, 1015, 1010, 1002, 998, 987];
 
 export default function AccessibleTable() {
 const [expanded, setExpanded] = React.useState(false);
