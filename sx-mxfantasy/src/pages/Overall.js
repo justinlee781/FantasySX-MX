@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import Devyn from "../ProPicks/devyn";
 
 function Overall(props) {
   const { selectedNames } = props;
 
-  function handleConfirm(names) {
-    console.log("Confirmed names:", names);
-    // Do something with the confirmed names
+  function handleConfirm(confirmedNames) {
+    console.log("Confirmed Names:", confirmedNames);
   }
 
   return (
@@ -24,4 +22,3 @@ function Overall(props) {
 }
 
 export default Overall;
-

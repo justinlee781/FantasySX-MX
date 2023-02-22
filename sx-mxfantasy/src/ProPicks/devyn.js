@@ -1,137 +1,82 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./DevynPage.css";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
 
-function Devyn(props) {
+const firebaseConfig = {
+    apiKey: "AIzaSyB7S1T1nali0wDElNBPm4uaLbCs-sEserE",
+    authDomain: "fantasy-sports-798ec.firebaseapp.com",
+    projectId: "fantasy-sports-798ec",
+    storageBucket: "fantasy-sports-798ec.appspot.com",
+    messagingSenderId: "871522821047",
+    appId: "1:871522821047:web:b73d7dabb15278ed45be32",
+    measurementId: "G-2KF91FL1QY"
+  };
+  
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+function Devyn() {
   const [selectedNames, setSelectedNames] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleNameClick(name) {
     setSelectedNames((selectedNames) => {
       const isSelected = selectedNames.includes(name);
       return isSelected
         ? selectedNames.filter((selectedName) => selectedName !== name)
-        : selectedNames.length < 12
-        ? [...selectedNames, name]
-        : selectedNames;
+        : [...selectedNames, name];
     });
   }
 
-  function handleConfirmClick() {
-    if (typeof props.onConfirm === 'function') {
-      if (selectedNames.length === 12) {
-        const confirmedNames = [selectedNames.slice(0, 6), selectedNames.slice(6)];
-        props.onConfirm(confirmedNames);
-        setSelectedNames([]);
-      }
-    } else {
-      console.error('props.onConfirm is not a function');
+  async function handleConfirmClick() {
+    setIsSubmitting(true);
+
+    if (selectedNames.length !== 3) {
+      alert("Please select three names before confirming.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const namesCollection = collection(db, "names");
+      const docRef = doc(namesCollection, "selectedNames");
+      await setDoc(docRef, { selectedNames });
+
+      console.log("Selected names saved to Firestore");
+    } catch (error) {
+      console.error("Error saving selected names to Firestore: ", error);
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
-  // Call onSendConfirmedNames only if it is a function
-  if (typeof props.onSendConfirmedNames === 'function') {
-    props.onSendConfirmedNames(selectedNames);
-  }
-
   return (
-    <div className="container">
-      <div className="tables">
-        <table>
-          <thead>
-            <tr>
-              <th>450</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...Array(Math.ceil(12 / 6))].map((_, rowIndex) => (
-              <tr key={rowIndex}>
-                {Array.from({ length: 6 }).map((_, colIndex) => {
-                  const index = rowIndex * 6 + colIndex;
-                  const name = "Name " + (index + 1);
-                  return (
-                    <td
-                      key={name}
-                      onClick={() => handleNameClick(name)}
-                      style={{ cursor: "pointer" }}
-                      className={selectedNames.includes(name) ? "selected" : ""}
-                    >
-                      {name}
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <div>
+      <h1>Select Three Names</h1>
+      <p>Click on a name to select it.</p>
+
+      <div>
+        <button
+          onClick={handleConfirmClick}
+          disabled={isSubmitting || selectedNames.length < 3}
+        >
+          Confirm Selection
+        </button>
       </div>
-      <div className="tables">
-        <table>
-          <thead>
-            <tr>
-              <th>250E</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...Array(Math.ceil(12 / 6))].map((_, rowIndex) => (
-              <tr key={rowIndex}>
-                {Array.from({ length: 6 }).map((_, colIndex) => {
-                  const index = 12 + rowIndex * 6 + colIndex;
-                  const name = "Name" + (index + 1);
-                  return (
-                    <td
-                      key={name}
-                      onClick={() => handleNameClick(name)}
-                      style={{ cursor: "pointer" }}
-                      className={selectedNames.includes(name) ? "selected" : ""}
-                    >
-                      {name}
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="tables">
-        <table>
-          <thead>
-            <tr>
-              <th>250W</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...Array(Math.ceil(12 / 6))].map((_, rowIndex) => (
-              <tr key={rowIndex}>
-                {Array.from({ length: 6 }).map((_, colIndex) => {
-const index = 24 + rowIndex * 6 + colIndex;
-const name = "Name" + (index + 1);
-return (
-<td
-key={name}
-onClick={() => handleNameClick(name)}
-style={{ cursor: "pointer" }}
-className={selectedNames.includes(name) ? "selected" : ""}
->
-{name}
-</td>
-);
-})}
-</tr>
-))}
-</tbody>
-</table>
-</div>
-<div className="button-container">
-<button className="confirm-button" onClick={handleConfirmClick}>
-Confirm
-</button>
-<Link to="/" className="cancel-button">
-Cancel
-</Link>
-</div>
-</div>
-);
+
+      <ul>
+        <li onClick={() => handleNameClick("Alice")}>
+          Alice {selectedNames.includes("Alice") && "(Selected)"}
+        </li>
+        <li onClick={() => handleNameClick("Bob")}>
+          Bob {selectedNames.includes("Bob") && "(Selected)"}
+        </li>
+        <li onClick={() => handleNameClick("Charlie")}>
+          Charlie {selectedNames.includes("Charlie") && "(Selected)"}
+        </li>
+      </ul>
+    </div>
+  );
 }
 
 export default Devyn;
