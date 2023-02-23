@@ -1,33 +1,151 @@
-.metallic-card {
-    background-color: #a31515;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px #810909;
-  }
-  
-  .pulsing-button {
-    animation: pulse 1s infinite;
-  }
-  
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
-  .red-text {
-    color: #ff0000;
-  }
-  
-  .footer {
-    color: #9e1010;
-    padding: 20px;
-    text-align: center;
-  }
-  
+/* Root styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  z-index: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Sports cards */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0.5rem;
+  width: 300px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-text {
+  margin: 1rem 0;
+}
+
+/* Features section */
+.features-section {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.features-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.features-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.features-list li {
+  margin-bottom: 1rem;
+}
+
+.features-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.features-button:hover {
+  background-color: #0077A3;
+}
+
+/* Message board section */
+.message-board-section {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.message-board-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.message-form {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.message-input {
+  flex-grow: 1;
+  margin-right: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.message-button {
+  padding: 0.5rem 1rem;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.message-button:hover {
+  background-color: #0077A3;
+}
+
+.message-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.message-list-item {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
