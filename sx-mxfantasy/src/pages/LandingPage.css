@@ -1,151 +1,131 @@
-/* Root styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  font-size: 16px;
+/* Landing page container */
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.header {
+
+/* Animated background */
+.animated-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #ffffff;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
-  z-index: 1;
+  height: 100%;
+  z-index: -1;
+  background-color: #fff;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+.a {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: translate(-50%, 0);
+  animation: a 2s ease-in-out infinite;
 }
 
-/* Sports cards */
-.card {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  overflow: hidden;
-  margin: 0.5rem;
-  width: 300px;
-  transition: transform 0.2s ease-in-out;
+#circle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: #6eb8ff;
+  transform: translate(-50%, 50%);
+  z-index: -1;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  animation: circle 2s ease-in-out infinite;
 }
 
-.card:hover {
-  transform: scale(1.02);
+@keyframes a {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.2;
+  }
+  50% {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    opacity: 0.2;
+  }
 }
 
-.card-image {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
+@keyframes circle {
+  0% {
+    width: 250px;
+    height: 250px;
+    transform: translate(-50%, 50%) rotate(0deg);
+  }
+  50% {
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, 50%) rotate(180deg);
+  }
+  100% {
+    width: 250px;
+    height: 250px;
+    transform: translate(-50%, 50%) rotate(360deg);
+  }
 }
 
-.card-content {
-  padding: 1rem;
+/* Sports section */
+.sports-section {
+  margin-top: 1px;
+  margin-bottom: 10px;
 }
 
-.card-title {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.card-text {
-  margin: 1rem 0;
+.sports-section h5 {
+  margin-top: 20px;
 }
 
 /* Features section */
 .features-section {
-  margin: 2rem 0;
-  text-align: center;
+  background-color: #f8f8f8;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-.features-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+.features-section h5 {
+  margin-top: 0;
 }
 
-.features-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* Newsletter section */
+.newsletter-section {
+  background-color: #6eb8ff;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: #fff;
 }
 
-.features-list li {
-  margin-bottom: 1rem;
+.newsletter-section h5 {
+  margin-top: 0;
 }
 
-.features-button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background-color: #008CBA;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.features-button:hover {
-  background-color: #0077A3;
-}
-
-/* Message board section */
-.message-board-section {
-  margin: 2rem 0;
-  text-align: center;
-}
-
-.message-board-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.message-form {
+.newsletter-section form {
   display: flex;
-  margin-bottom: 1rem;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.message-input {
-  flex-grow: 1;
-  margin-right: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.newsletter-section form .MuiTextField-root {
+  margin-right: 20px;
 }
 
-.message-button {
-  padding: 0.5rem 1rem;
-  background-color: #008CBA;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.2s ease-in-out;
+/* Footer */
+.footer {
+  background-color: #f8f8f8;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
-.message-button:hover {
-  background-color: #0077A3;
-}
-
-.message-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
-
-.message-list-item {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-  padding: 1rem;
-}
