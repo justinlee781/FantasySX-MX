@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <Container style={{ width: '100%', position: 'flex', top: '0', zIndex: '1' }}>
-      <AppBar position="static" style={{ backgroundColor: '#ffff', boxShadow: 'none' }}>
+      <AppBar position="static" style={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
         <Toolbar style={{ justifyContent: 'space-between' }}>
           <Typography
             variant="h5"

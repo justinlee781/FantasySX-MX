@@ -37,7 +37,7 @@ return (
     <Typography variant="h5" align="center" gutterBottom>
       Sports
     </Typography>
-    <Divider />
+  
     <Slider infinite={true} slidesToShow={4} slidesToScroll={1} arrows={true} dots={false}>
       {sports.map((sport) => (
         <OutlinedCard key={sport.id} imageUrl={sport.imageUrl} name={sport.name} />

@@ -5,6 +5,7 @@
   min-height: 100vh;
 }
 
+
 /* Animated background */
 
 .a {
@@ -54,6 +55,19 @@
     transform: translate(-50%, 50%) rotate(360deg);
   }
 }
+
+body {
+  background-color: #00ff00;
+  background-image: linear-gradient(to top, transparent, white), url('https://i.imgur.com/5A7VSmN.png');
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: contain;
+}
+
+
+
+
+
 
 /* Sports section */
 .sports-section {
