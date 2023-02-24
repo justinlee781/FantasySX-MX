@@ -49,8 +49,7 @@ return (
   <div className="features-section">
     <Grid container justifyContent="center">
       <Grid item xs={12} md={6}>
-        
-          <Grid container direction="column" alignItems="center">
+        <Grid container direction="column" alignItems="center">
             <Grid item>
               <Typography variant="h5" align="center" gutterBottom>
                 Features
