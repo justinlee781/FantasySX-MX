@@ -1,0 +1,15 @@
+.supercross-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .buttons-container {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  
+  .button:hover {
+    background-color: #04d504;
+  }

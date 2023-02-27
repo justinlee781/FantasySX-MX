@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 import { OutlinedCard } from '../components/card';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header/Header';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -11,14 +12,14 @@ import Body from '../components/Body/Body';
 import ChatBox from '../components/Body/ChatBox';
 import Footer from '../components/Footer/Footer';
 
-const sports = [
-  { id: 1, name: 'Formula 1', imageUrl: 'https://source.unsplash.com/featured/?formula1', eventsUrl: 'https://example.com/formula1-events' },
-  { id: 2, name: 'NASCAR', imageUrl: 'https://source.unsplash.com/featured/?nascar', eventsUrl: 'https://example.com/nascar-events' },
-  { id: 3, name: 'MotoGP', imageUrl: 'https://source.unsplash.com/featured/?motogp', eventsUrl: 'https://example.com/motogp-events' },
-  { id: 4, name: 'Supercross', imageUrl: 'https://source.unsplash.com/featured/?supercross', eventsUrl: 'https://example.com/supercross-events' },
-  { id: 5, name: 'Motocross', imageUrl: 'https://source.unsplash.com/featured/?motocross', eventsUrl: 'https://example.com/motocross-events' },
-  { id: 6, name: 'Surfing', imageUrl: 'https://source.unsplash.com/featured/?surfing', eventsUrl: 'https://example.com/surfing-events' },
-  { id: 7, name: 'Nascar', imageUrl: 'https://source.unsplash.com/featured/?nascar', eventsUrl: 'https://example.com/nascar-events' },
+const sports = [  
+  { id: 1, name: 'Formula 1', imageUrl: 'https://source.unsplash.com/featured/?formula1', eventsUrl: 'https://example.com/formula1-events' },  
+  { id: 2, name: 'NASCAR', imageUrl: 'https://source.unsplash.com/featured/?nascar', eventsUrl: 'https://example.com/nascar-events' },  
+  { id: 3, name: 'MotoGP', imageUrl: 'https://source.unsplash.com/featured/?motogp', eventsUrl: 'https://example.com/motogp-events' },  
+  { id: 4, name: 'Supercross', imageUrl: 'https://source.unsplash.com/featured/?supercross', eventsUrl: '/Supercross' },  
+  { id: 5, name: 'Motocross', imageUrl: 'https://source.unsplash.com/featured/?motocross', eventsUrl: 'https://example.com/motocross-events' },  
+  { id: 6, name: 'Surfing', imageUrl: 'https://source.unsplash.com/featured/?surfing', eventsUrl: 'https://example.com/surfing-events' },  
+  { id: 7, name: 'Nascar', imageUrl: 'https://source.unsplash.com/featured/?nascar', eventsUrl: 'https://example.com/nascar-events' },  
   { id: 8, name: 'Indycar', imageUrl: 'https://source.unsplash.com/featured/?indycar', eventsUrl: 'https://example.com/indycar-events' },
 ];
 
@@ -45,7 +46,9 @@ const LandingPage = () => {
 
         <Slider {...settings}>
           {sports.map((sport) => (
-            <OutlinedCard key={sport.id} imageUrl={sport.imageUrl} name={sport.name} />
+            <Link key={sport.id} to={sport.eventsUrl}>
+              <OutlinedCard imageUrl={sport.imageUrl} name={sport.name} />
+            </Link>
           ))}
         </Slider>
       </div>
@@ -63,6 +66,7 @@ const LandingPage = () => {
       <div className="table-section">
         <TablePage />
       </div>
+
 
       {/* Chatbox section */}
       <div className="table-section">
