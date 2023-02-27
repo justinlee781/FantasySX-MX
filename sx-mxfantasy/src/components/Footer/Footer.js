@@ -11,7 +11,7 @@ function Footer() {
             <div className="footer-section">
               <h3>About Us</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies mi quis dolor bibendum, eu commodo ex consectetur.
+              User-friendly interface: Fantasy Action Sports will have an easy-to-use interface that allows users to quickly and easily select the sports series they want to participate in and make their picks.
               </p>
             </div>
           </div>
@@ -63,3 +63,8 @@ function Footer() {
 }
 
 export default Footer;
+
+
+
+
+
