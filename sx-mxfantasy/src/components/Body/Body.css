@@ -1,0 +1,76 @@
+/* SportsBlock Component */
+
+/* Style for the main container */
+.SportsBlock {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Style for the title */
+  .SportsBlock h5 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the Grid container */
+  .SportsBlock .MuiGrid-container {
+    justify-content: center;
+  }
+  
+  /* Style for the Grid item */
+  .SportsBlock .MuiGrid-item {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Style for the IconButton */
+  .SportsBlock .MuiIconButton-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Hover state for the IconButton */
+  .SportsBlock .MuiIconButton-root:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Style for the icon */
+  .SportsBlock .MuiIconButton-root .MuiTypography-root {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* Style for the selected IconButton */
+  .SportsBlock .Mui-selected {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+  
+  /* Style for the selected icon */
+  .SportsBlock .Mui-selected .MuiTypography-root {
+    color: #fff;
+  }
+  
+  /* Style for the selected sport title */
+  .SportsBlock .selected-sport h5 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the selected sport description */
+  .SportsBlock .selected-sport p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
