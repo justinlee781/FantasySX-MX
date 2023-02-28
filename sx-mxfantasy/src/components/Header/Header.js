@@ -52,7 +52,7 @@ const Header = () => {
             </Button>
             <Button
               component={Link}
-              to="/rules"
+              to="/profile"
               color="secondary"
               style={{
                 color: 'black',
