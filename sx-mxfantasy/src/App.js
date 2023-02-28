@@ -6,6 +6,7 @@ import Login from './components/Header/Login';
 import Profile from './components/Header/Profile';
 import Standings from './components/Header/Standings';
 import Picks from './components/Header/Picks';
+import Surf from './Sports/Surf'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/standings" element={<Standings profile={{ name: 'John Doe', date: '2022-02-28' }} />} />
         <Route path="/picks" element={<Picks />} />
+        <Route path="/surf" element={<Surf />} />
 
       </Routes>
     </BrowserRouter>

@@ -18,7 +18,7 @@ const sports = [
   { id: 3, name: 'MotoGP', imageUrl: 'https://source.unsplash.com/featured/?motogp', eventsUrl: 'https://example.com/motogp-events' },  
   { id: 4, name: 'Supercross', imageUrl: 'https://source.unsplash.com/featured/?supercross', eventsUrl: '/Supercross' },  
   { id: 5, name: 'Motocross', imageUrl: 'https://source.unsplash.com/featured/?motocross', eventsUrl: 'https://example.com/motocross-events' },  
-  { id: 6, name: 'Surfing', imageUrl: 'https://source.unsplash.com/featured/?surfing', eventsUrl: 'https://example.com/surfing-events' },  
+  { id: 6, name: 'Surfing', imageUrl: 'https://source.unsplash.com/featured/?surfing', eventsUrl: '/Surf' },  
   { id: 7, name: 'Nascar', imageUrl: 'https://source.unsplash.com/featured/?nascar', eventsUrl: 'https://example.com/nascar-events' },  
   { id: 8, name: 'Indycar', imageUrl: 'https://source.unsplash.com/featured/?indycar', eventsUrl: 'https://example.com/indycar-events' },
 ];
