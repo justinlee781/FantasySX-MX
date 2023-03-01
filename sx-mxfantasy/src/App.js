@@ -11,6 +11,7 @@ import Motogp from './Sports/Motogp';
 import Nascar from './Sports/Nascar'
 import Formula from './Sports/Formula1';
 import Motocross from './Sports/Motocross';
+import SX450 from './Sports/SubSport/SX/450sx';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
         <Route path="/nascar" element={<Nascar />} />
         <Route path="/formula" element={<Formula />} />
         <Route path="/motocross" element={<Motocross />} />
-
+        <Route path="/450sx" element={<SX450 />} />
       </Routes>
     </BrowserRouter>
   );
