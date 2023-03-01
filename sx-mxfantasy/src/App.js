@@ -12,6 +12,7 @@ import Nascar from './Sports/Nascar'
 import Formula from './Sports/Formula1';
 import Motocross from './Sports/Motocross';
 import SX450 from './Sports/SubSport/SX/450sx';
+import Signup from './components/Header/Signup';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/supercross" element={<Supercross />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
         <Route path="/profile" element={<Profile />} />
         <Route path="/standings" element={<Standings profile={{ name: 'John Doe', date: '2022-02-28' }} />} />
         <Route path="/picks" element={<Picks />} />
@@ -29,6 +32,7 @@ function App() {
         <Route path="/formula" element={<Formula />} />
         <Route path="/motocross" element={<Motocross />} />
         <Route path="/450sx" element={<SX450 />} />
+
       </Routes>
     </BrowserRouter>
   );

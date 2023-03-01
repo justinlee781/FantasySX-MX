@@ -23,31 +23,31 @@ const useStyles = makeStyles({
   },
 });
 
-function Login() {
+function Signup() {
   const classes = useStyles();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
 
-    // Create an object with the username and password
-    const credentials = { username, password };
+    // Create an object with the email and phone
+    const user = { email, phone };
 
-    // Send a POST request to the login endpoint on the server
-    const response = await fetch('/login', {
+    // Send a POST request to the signup endpoint on the server
+    const response = await fetch('/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(credentials)
+      body: JSON.stringify(user)
     });
 
     // Handle the response from the server
     if (response.ok) {
-      // Redirect the user to the restricted page or do something else
-      window.location.href = '/restricted';
+      // Redirect the user to the login page or do something else
+      window.location.href = '/login';
     } else {
       // Display an error message to the user
       const errorMessage = await response.text();
@@ -60,44 +60,34 @@ function Login() {
       <Container maxWidth="sm">
         <Paper elevation={3} className={classes.form}>
           <Typography variant="h4" component="h1" align="center" gutterBottom>
-            Login
+            Sign Up
           </Typography>
           <TextField
             className={classes.input}
-            label="Username"
+            label="Email"
             variant="outlined"
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
             className={classes.input}
-            label="Password"
+            label="Phone"
             variant="outlined"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
+            type="tel"
+            onChange={(e) => setPhone(e.target.value)}
           />
           <Button 
             className={classes.button}
             variant="contained" 
             color="primary" 
             type="submit"
-            onClick={handleLogin}
+            onClick={handleSignup}
           >
-            Login
+            Sign Up
           </Button>
-          <Button 
-  className={classes.button}
-  variant="outlined"
-  color="secondary"
-  onClick={() => window.location.href = '/signup'}
->
-  If you're not registered, sign up
-</Button>
-
         </Paper>
       </Container>
     </div>
   );
 }
 
-export default Login;
-
+export default Signup;
