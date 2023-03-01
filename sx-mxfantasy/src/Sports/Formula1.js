@@ -25,17 +25,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Surf() {
+function Formula() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Button className={classes.button} variant="contained" component={Link} to="https://www.worldsurfleague.com/events?month=february&year=2023" target="_blank" rel="noopener noreferrer">
+      <Button className={classes.button} variant="contained" component={Link} to="https://www.formula1.com/en/racing/2023.html" target="_blank" rel="noopener noreferrer">
         Event
       </Button>
     </div>
   );
 }
 
-export default Surf;
-
+export default Formula;

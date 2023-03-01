@@ -1,76 +1,65 @@
-/* SportsBlock Component */
+/* Define some global styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-/* Style for the main container */
-.SportsBlock {
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Style for the title */
-  .SportsBlock h5 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* Style for the Grid container */
-  .SportsBlock .MuiGrid-container {
-    justify-content: center;
-  }
-  
-  /* Style for the Grid item */
-  .SportsBlock .MuiGrid-item {
-    display: flex;
-    justify-content: center;
-  }
-  
-  /* Style for the IconButton */
-  .SportsBlock .MuiIconButton-root {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  /* Hover state for the IconButton */
-  .SportsBlock .MuiIconButton-root:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Style for the icon */
-  .SportsBlock .MuiIconButton-root .MuiTypography-root {
-    font-size: 32px;
-    font-weight: bold;
-    color: #fff;
-  }
-  
-  /* Style for the selected IconButton */
-  .SportsBlock .Mui-selected {
-    background-color: #4CAF50;
-    color: #fff;
-  }
-  
-  /* Style for the selected icon */
-  .SportsBlock .Mui-selected .MuiTypography-root {
-    color: #fff;
-  }
-  
-  /* Style for the selected sport title */
-  .SportsBlock .selected-sport h5 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* Style for the selected sport description */
-  .SportsBlock .selected-sport p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-  
+/* Style the container for the sports list */
+.body-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the title */
+h3 {
+  margin: 20px 0;
+}
+
+/* Style the sport cards */
+.sport-card {
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.sport-card:hover {
+  transform: scale(1.05);
+}
+
+/* Style the sport icon */
+.sport-icon {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+/* Style the selected sport container */
+.selected-sport-container {
+  margin-top: 20px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* Style the selected sport card */
+.selected-sport-card {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Style the selected sport title */
+.selected-sport-card h4 {
+  margin: 0;
+}
+
+/* Style the selected sport bio */
+.selected-sport-card p {
+  margin: 10px 0 0;
+}

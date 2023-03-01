@@ -7,6 +7,10 @@ import Profile from './components/Header/Profile';
 import Standings from './components/Header/Standings';
 import Picks from './components/Header/Picks';
 import Surf from './Sports/Surf'
+import Motogp from './Sports/Motogp';
+import Nascar from './Sports/Nascar'
+import Formula from './Sports/Formula1';
+import Motocross from './Sports/Motocross';
 
 function App() {
   return (
@@ -19,6 +23,10 @@ function App() {
         <Route path="/standings" element={<Standings profile={{ name: 'John Doe', date: '2022-02-28' }} />} />
         <Route path="/picks" element={<Picks />} />
         <Route path="/surf" element={<Surf />} />
+        <Route path="/motogp" element={<Motogp />} />
+        <Route path="/nascar" element={<Nascar />} />
+        <Route path="/formula" element={<Formula />} />
+        <Route path="/motocross" element={<Motocross />} />
 
       </Routes>
     </BrowserRouter>

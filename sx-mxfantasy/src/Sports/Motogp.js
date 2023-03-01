@@ -25,17 +25,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Surf() {
+function Motogp() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Button className={classes.button} variant="contained" component={Link} to="https://www.worldsurfleague.com/events?month=february&year=2023" target="_blank" rel="noopener noreferrer">
+      <Button className={classes.button} variant="contained" component={Link} to="https://www.motogp.com/en/news/2022/09/30/2023-motogp-calendar-countries-circuits-dates/432916" target="_blank" rel="noopener noreferrer">
         Event
       </Button>
     </div>
   );
 }
 
-export default Surf;
-
+export default Motogp;
