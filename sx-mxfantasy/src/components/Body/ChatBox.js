@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import { TextField, Button, List, ListItem, ListItemText, ListItemSecondaryAction, IconButton, Box } from '@mui/material';
 import { Delete } from '@mui/icons-material';
-import '../Body/ChatBox.css';
+import './ChatBox.css';
 
 const useStyles = makeStyles({
   root: {

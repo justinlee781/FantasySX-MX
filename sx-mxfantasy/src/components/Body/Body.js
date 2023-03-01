@@ -1,6 +1,6 @@
 import { Grid, Typography, IconButton } from '@mui/material';
 import { useState } from 'react';
-import '../Body/Body.css';
+import './Body.css';
 
 const sportsData = [
   {

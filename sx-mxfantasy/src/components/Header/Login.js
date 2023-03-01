@@ -28,11 +28,32 @@ function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
-  const handleLogin = (e) => {
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // add login logic here
-  }
+
+    // Create an object with the username and password
+    const credentials = { username, password };
+
+    // Send a POST request to the login endpoint on the server
+    const response = await fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    });
+
+    // Handle the response from the server
+    if (response.ok) {
+      // Redirect the user to the restricted page or do something else
+      window.location.href = '/restricted';
+    } else {
+      // Display an error message to the user
+      const errorMessage = await response.text();
+      alert(`Error: ${errorMessage}`);
+    }
+  };
 
   return (
     <div className={classes.root}>
@@ -70,3 +91,4 @@ function Login() {
 }
 
 export default Login;
+
