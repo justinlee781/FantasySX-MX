@@ -43,7 +43,7 @@ const sportsData = [
     name: 'Indycar',
     icon: '🏎️',
     color: '#FFC300',
-    bio: 'he IndyCar season is an American open-wheel racing series that typically runs from March to September. The season includes a mix of oval and road course races across the United States, as well as one race in Canada. The championship is contested by teams running with identical chassis and engines, with a focus on driver skill and strategy. The Indy 500, held annually in May, is the most prestigious race on the calendar and one of the most famous motor racing events in the world.'
+    bio: 'he IndyCar seasonz is an American open-wheel racing series that typically runs from March to September. The season includes a mix of oval and road course races across the United States, as well as one race in Canada. The championship is contested by teams running with identical chassis and engines, with a focus on driver skill and strategy. The Indy 500, held annually in May, is the most prestigious race on the calendar and one of the most famous motor racing events in the world.'
   }
 ]
 
