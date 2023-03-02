@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { makeStyles } from '@mui/styles';
 import { Container, Paper, TextField, Button, Typography } from '@mui/material';
+const { MongoClient, ServerApiVersion } = require('mongodb');
+
+const uri = "mongodb+srv://Justinlee781:Pinittowinit762@fantasy1.z8ydubf.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 const useStyles = makeStyles({
   root: {
@@ -35,23 +39,24 @@ function Signup() {
     // Create an object with the email and phone
     const user = { email, phone };
 
-    // Send a POST request to the signup endpoint on the server
-    const response = await fetch('/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(user)
-    });
+    try {
+      // Connect to the MongoDB database
+      await client.connect();
 
-    // Handle the response from the server
-    if (response.ok) {
+      // Get a reference to the users collection
+      const collection = client.db("mydatabase").collection("users");
+
+      // Insert the user object into the users collection
+      await collection.insertOne(user);
+
       // Redirect the user to the login page or do something else
       window.location.href = '/login';
-    } else {
+    } catch (err) {
       // Display an error message to the user
-      const errorMessage = await response.text();
-      alert(`Error: ${errorMessage}`);
+      alert(`Error: ${err.message}`);
+    } finally {
+      // Close the MongoDB connection
+      await client.close();
     }
   };
 
@@ -91,3 +96,5 @@ function Signup() {
 }
 
 export default Signup;
+
+
