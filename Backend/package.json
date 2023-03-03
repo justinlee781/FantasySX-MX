@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "FantasySx-MX Backend",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "Test",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "\\"
+  ],
+  "author": "Justin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.0"
+  }
+}

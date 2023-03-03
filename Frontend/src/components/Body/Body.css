@@ -1,0 +1,65 @@
+/* Define some global styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the container for the sports list */
+.body-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the title */
+h3 {
+  margin: 20px 0;
+}
+
+/* Style the sport cards */
+.sport-card {
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.sport-card:hover {
+  transform: scale(1.05);
+}
+
+/* Style the sport icon */
+.sport-icon {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+/* Style the selected sport container */
+.selected-sport-container {
+  margin-top: 20px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* Style the selected sport card */
+.selected-sport-card {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Style the selected sport title */
+.selected-sport-card h4 {
+  margin: 0;
+}
+
+/* Style the selected sport bio */
+.selected-sport-card p {
+  margin: 10px 0 0;
+}
