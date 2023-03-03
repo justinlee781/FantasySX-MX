@@ -23,5 +23,3 @@ const Supercross = () => {
 };
 
 export default Supercross;
-
-
