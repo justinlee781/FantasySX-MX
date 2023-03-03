@@ -1,9 +1,0 @@
-/* Global styles */
-body {
-  background-color: #0077c0;
-  background-image: linear-gradient(to top, #0077c0, #ffffff);
-  background-repeat: repeat-x;
-  background-position: bottom;
-  background-size: contain;
-  font-family: 'Roboto Mono', monospace;
-}
