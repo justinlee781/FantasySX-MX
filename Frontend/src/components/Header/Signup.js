@@ -1,31 +1,29 @@
 import React, { useState } from "react";
-import { makeStyles } from '@mui/styles';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import { Container, Paper, TextField, Button, Typography } from '@mui/material';
+import { green, red } from '@mui/material/colors';
 
-const useStyles = makeStyles({
-  root: {
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '2rem',
-  },
-  input: {
-    margin: '1rem',
-  },
-  button: {
-    margin: '1rem',
+
+const theme = createTheme({
+  status: {
+    confirmed: green[300],
+    error: red[400]
   },
 });
 
-function Signup() {
-  const classes = useStyles();
+const CustomTextField = styled(TextField)(({ theme }) => ({
+  margin: '1rem',
+  backgroundColor: theme.palette.primary.light,
+}));
 
+const ParentContainer = styled(Container)(({ theme }) => ({
+  height: '100vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+}));
+
+function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -60,39 +58,38 @@ function Signup() {
   };
 
   return (
-    <div className={classes.root}>
-      <Container maxWidth="sm">
-        <Paper elevation={3} className={classes.form}>
-          <Typography variant="h4" component="h1" align="center" gutterBottom>
-            Sign Up
-          </Typography>
-          <TextField
-            className={classes.input}
-            label="Email"
-            variant="outlined"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            className={classes.input}
-            label="Password"
-            variant="outlined"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button 
-            className={classes.button}
-            variant="contained" 
-            color="primary" 
-            type="submit"
-            onClick={handleSignup}
-          >
-            Sign Up
-          </Button>
-        </Paper>
-      </Container>
-    </div>
+    <ThemeProvider theme={theme}>
+      <ParentContainer sx={{ bgcolor: 'background.default' }}>
+        <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Paper elevation={3} sx={{ p: 4 }}>
+            <Typography variant="h4" component="h1" align="center" gutterBottom>
+              Sign Up
+            </Typography>
+            <CustomTextField
+              label="Email"
+              variant="outlined"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <CustomTextField
+              label="Password"
+              variant="outlined"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              onClick={handleSignup}
+              sx={{ mt: 2 }}
+            >
+              Sign Up
+            </Button>
+          </Paper>
+        </Container>
+      </ParentContainer>
+    </ThemeProvider>
   );
 }
 
 export default Signup;
-

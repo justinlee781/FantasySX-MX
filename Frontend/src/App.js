@@ -15,12 +15,13 @@ import SX450 from './Sports/SubSport/SX/450sx';
 import Signup from './components/Header/Signup';
 
 function App() {
-  useEffect(() => {
+  //useEffect(() => {
     fetch('http://localhost:3000') // Replace with the correct API endpoint
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.error(error));
-  }, []);
+  //}, []);
+  
 
   return (
     <BrowserRouter>
