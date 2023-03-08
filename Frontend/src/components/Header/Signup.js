@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import { Container, Paper, TextField, Button, Typography } from '@mui/material';
 import { green, red } from '@mui/material/colors';
-
+import axios from "axios";
 
 const theme = createTheme({
   status: {
@@ -26,41 +26,43 @@ const ParentContainer = styled(Container)(({ theme }) => ({
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const formRef = useRef(null);
 
   const handleSignup = async (e) => {
     e.preventDefault();
-
-    // Create an object with the email and password
-    const user = { email, password };
-
+  
     try {
-      // Send a POST request to the API endpoint with the user object as the request body
-      const response = await fetch('/api/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
+      // Send a POST request to the API endpoint with the email and password as the request body
+      const response = await axios.post('http://localhost:5001/user', {
+        email: email,
+        password: password
       });
-
-      if (response.ok) {
-        // Redirect the user to the login page or do something else
-        window.location.href = '/login';
+  
+      if (response.status === 200) {
+        // Submit the form
+        formRef.current.submit();
       } else {
         // Display an error message to the user
-        const data = await response.json();
-        alert(`Error: ${data.message}`);
+        alert(`No Bitch: ${response.data.message}`);
       }
     } catch (err) {
       // Display an error message to the user
-      alert(`Error: ${err.message}`);
+      alert(`nope: ${err.message}`);
     }
   };
+  
+  
 
   return (
     <ThemeProvider theme={theme}>
       <ParentContainer sx={{ bgcolor: 'background.default' }}>
-        <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Container
+          sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          component='form'
+          ref={formRef}
+          action='/profile'
+          method='post'
+        >
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" component="h1" align="center" gutterBottom>
               Sign Up
@@ -68,12 +70,14 @@ function Signup() {
             <CustomTextField
               label="Email"
               variant="outlined"
+              name="email"
               onChange={(e) => setEmail(e.target.value)}
             />
             <CustomTextField
               label="Password"
               variant="outlined"
               type="password"
+              autoComplete="false"
               onChange={(e) => setPassword(e.target.value)}
             />
             <Button
