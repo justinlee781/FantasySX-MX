@@ -1,7 +1,5 @@
-const express = require('express');
-const User = require('../models/User');
 const passport = require('passport');
-const router = express.Router();
+const User = require('../models/User');
 
 const createUser = async (req, res, next) => {
   passport.authenticate('register', async (err, user, info) => {
@@ -29,14 +27,4 @@ const createUser = async (req, res, next) => {
   })(req, res, next);
 };
 
-const getUsers = async (req, res, next) => {
-  try {
-    const users = await User.find();
-    res.status(200).json({ message: 'Success, retrieving all users', users });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
-  }
-};
-
-module.exports = { createUser, getUsers };
+module.exports = createUser;

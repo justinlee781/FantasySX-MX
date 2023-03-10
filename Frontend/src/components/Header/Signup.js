@@ -33,7 +33,7 @@ function Signup() {
   
     try {
       // Send a POST request to the API endpoint with the email and password as the request body
-      const response = await axios.post('http://localhost:5001/user', {
+      const response = await axios.post('http://localhost:5001/User', {
         email: email,
         password: password
       });
