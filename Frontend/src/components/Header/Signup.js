@@ -43,17 +43,16 @@ function Signup() {
         formRef.current.submit();
       } else {
         // Display an error message to the user
-        alert(`No Bitch: ${response.data.message}`);
+        alert(`Error: ${response.data.message}`);
       }
     } catch (err) {
       // Display an error message to the user
-      alert(`nope: ${err.message}`);
+      alert(`Error: ${err.message}`);
     }
   };
   
   
-
-  return (
+return (
     <ThemeProvider theme={theme}>
       <ParentContainer sx={{ bgcolor: 'background.default' }}>
         <Container
