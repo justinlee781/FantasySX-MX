@@ -1,24 +1,21 @@
-const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const User = require('../models/User');
+const passport = require('passport');
 
-// Define the strategy to be used by Passport
-passport.use(new LocalStrategy(
-  async (username, password, done) => {
-    try {
-      // Code to find the user in your database and validate their credentials
-      const user = await User.findOne({ username });
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    } catch (err) {
-      return done(err);
-    }
-  },
-));
+
+passport.use('register', new LocalStrategy({
+  usernameField: 'email',
+  passwordField: 'password',
+  passReqToCallback: true
+}, async (req, email, password, done) => {
+  try {
+    const user = await User.create({ email, password });
+    return done(null, user);
+  } catch (error) {
+    return done(error);
+  }
+}));
+
 
 // Serialize the user object
 passport.serializeUser((user, done) => {
